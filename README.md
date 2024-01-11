@@ -1,3 +1,7 @@
+This is my fork of the original [MicrobeAnnotator](https://github.com/cruizperez/MicrobeAnnotator), which I am using for testing and bug fixes.
+
+What follows is the README text from the original repository.
+
 # MicrobeAnnotator
 Easy-to-use pipeline for the comprehensive metabolic annotation of microbial genomes.
 
