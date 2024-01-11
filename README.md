@@ -9,12 +9,13 @@ pip install hmmer==0.1.0 wget Bio matplotlib seaborn psutil attrs
 conda install -c bioconda diamond
 conda install -c bioconda blast
 ```
-Then I created an activation script that adds the paths to the microbeannotator binaries within this repository to the `$PATH` whenever you activate this environment:
+Then I created an activation script that adds the paths to the microbeannotator binaries and Python libraries within this repository to relevant paths whenever you activate this environment:
 ```
 mkdir -p ${CONDA_PREFIX}/etc/conda/activate.d/
 cat <<EOF >${CONDA_PREFIX}/etc/conda/activate.d/microbeannotator.sh
 # add microbeannotator binaries to the path
 export PATH=\$PATH:~/software/MicrobeAnnotator/bin
+export PYTHONPATH=\$PYTHONPATH:~/software/MicrobeAnnotator/
 EOF
 ```
 This code assumes that the repository was cloned into the folder at `~/software/`, and that path may have to be changed if your setup location is different.
