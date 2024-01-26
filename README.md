@@ -1,3 +1,28 @@
+This is my fork of the original [MicrobeAnnotator](https://github.com/cruizperez/MicrobeAnnotator), which I am using for testing and bug fixes.
+
+**Installation**
+The original installation recipe given below doesn't cover all dependencies, so here is how I created the conda environment for running this program:
+```
+conda create -n microbeannotator_fork python=3.7 pip -c conda-forge -c bioconda
+conda activate microbeannotator_fork
+pip install hmmer==0.1.0 wget Bio matplotlib seaborn psutil attrs
+conda install -c bioconda diamond
+conda install -c bioconda blast
+```
+Then I created an activation script that adds the paths to the microbeannotator binaries and Python libraries within this repository to relevant paths whenever you activate this environment:
+```
+mkdir -p ${CONDA_PREFIX}/etc/conda/activate.d/
+cat <<EOF >${CONDA_PREFIX}/etc/conda/activate.d/microbeannotator.sh
+# add microbeannotator binaries to the path
+export PATH=\$PATH:~/software/MicrobeAnnotator/bin
+export PYTHONPATH=\$PYTHONPATH:~/software/MicrobeAnnotator/
+EOF
+```
+This code assumes that the repository was cloned into the folder at `~/software/`, and that path may have to be changed if your setup location is different.
+
+
+What follows is the README text from the original repository.
+
 # MicrobeAnnotator
 Easy-to-use pipeline for the comprehensive metabolic annotation of microbial genomes.
 
